@@ -1,0 +1,21 @@
+@import 'joined-media-queries-mixin.scss';
+
+.selector-a {
+  width: 50%;
+  @include add-media (320px, (
+    width: 100%,
+  ));
+}
+
+.selector-b {
+  font-size: 90px;
+  width: 123px;
+  @include add-media (320px, (
+    font-size: 10px
+  ));
+  @include add-media (480px, (
+    font-size: 40px
+  ));
+}
+
+@include print-medias;

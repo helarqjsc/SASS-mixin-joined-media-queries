@@ -1,0 +1,26 @@
+$medias: ();
+
+@mixin add-media($max-width, $rules) {
+  $current-media-list: ();
+  @if map-has-key($medias, $max-width) {
+    $current-media-list: map-get($medias, $max-width);
+  }
+  @debug $current-media-list;
+  $medias: map-merge($medias,
+            ($max-width: append($current-media-list, (&, $rules)))) !global;
+  @debug $medias;
+}
+
+@mixin print-medias {
+  @each $max-width, $data in $medias {
+    @media screen and (max-width: $max-width) {
+      @each $selector, $rules in $data {
+        #{$selector} {
+          @each $name, $value in $rules {
+            #{$name}: $value;
+          }
+        }
+      }
+    }
+  }
+}

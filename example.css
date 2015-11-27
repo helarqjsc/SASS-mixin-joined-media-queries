@@ -1,0 +1,23 @@
+.selector-a {
+  width: 50%;
+}
+
+.selector-b {
+  font-size: 90px;
+  width: 123px;
+}
+
+@media screen and (max-width: 320px) {
+  .selector-a {
+    width: 100%;
+  }
+
+  .selector-b {
+    font-size: 10px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .selector-b {
+    font-size: 40px;
+  }
+}
